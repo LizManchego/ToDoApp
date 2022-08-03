@@ -1,0 +1,66 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.cardLoading {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-flow: column;
+  box-shadow: 0 8px 32px 0 #ffffff16;
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+  padding: 0;
+  margin: 16px;
+  width: 240px;
+}
+.cardLoading .image {
+  height: 200px;
+}
+.cardLoading .image img {
+  display: block;
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+.cardLoading .content {
+  padding: 16px;
+}
+.cardLoading .content h1 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+.cardLoading .content h2 {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.cardLoading.loading .image,
+.cardLoading.loading .content * {
+  background: rgb(255,255,255);
+  background: linear-gradient(260deg, rgba(207,207,207,1) 0%, rgba(222,222,222,1) 52%, rgba(207,207,207,1) 100%);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1.6s Shine ease-in-out infinite;
+}
+.cardLoading.loading .content h1 {
+  min-height: 32px;
+  border-radius: 4px;
+  animation-delay: 0.05s;
+}
+.cardLoading.loading .content h2 {
+  min-height: 64px;
+  border-radius: 4px;
+  animation-delay: 0.07s;
+}
+
+@keyframes Shine {
+  to {
+    background-position-x: -20%;
+  }
+}
