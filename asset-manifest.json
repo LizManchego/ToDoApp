@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/curso-practico-react/static/css/main.384642c0.css",
+    "main.js": "/curso-practico-react/static/js/main.aef805f9.js",
+    "index.html": "/curso-practico-react/index.html",
+    "main.384642c0.css.map": "/curso-practico-react/static/css/main.384642c0.css.map",
+    "main.aef805f9.js.map": "/curso-practico-react/static/js/main.aef805f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.384642c0.css",
+    "static/js/main.aef805f9.js"
+  ]
+}
