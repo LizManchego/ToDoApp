@@ -1,4 +1,4 @@
-import react, { createContext, useState } from "react";
+import react, { createContext, useState, useEffect } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 //TodoContext =  {Provider, Consumer}
@@ -57,6 +57,28 @@ const TodoProvider = props => {
         saveTodos(newTodos);//funcion en useLocalStorage
     };
 
+
+    //7. getDataUser
+    const {
+        item: nameUser,
+        saveItem: setNameUser
+    }  = useLocalStorage('NAME_USER', '');
+        
+
+    const addNameUser = (text) => {
+        const newNameUser = text.toUpperCase()
+        setNameUser(newNameUser)
+    };
+
+    //6.Set getStarted
+    const [getStarted, setGetStarted] = useState(true);
+    useEffect(() => {
+        const bGetStarted = nameUser.length>0 ? false : true;
+        setGetStarted(bGetStarted)
+    }, [nameUser])
+
+
+
     return(
         <TodoContext.Provider value={{
             loading,
@@ -70,7 +92,11 @@ const TodoProvider = props => {
             deleteTodo,
             addTodo,
             openModal, 
-            setOpenModal
+            setOpenModal,
+            nameUser,
+            addNameUser,
+            getStarted,
+            setGetStarted
         }}>
             {props.children}
         </TodoContext.Provider>

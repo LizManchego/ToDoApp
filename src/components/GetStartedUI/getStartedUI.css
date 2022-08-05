@@ -1,0 +1,60 @@
+.cardGetStarted {
+    background: linear-gradient(107deg, #9460bf, #1badce);
+    background-size: 400% 400%;
+    -webkit-animation: animGS 0s ease infinite;
+    -moz-animation: animGS 0s ease infinite;
+    -o-animation: animGS 0s ease infinite;
+    animation: animGS 0s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  
+}
+.cardGetStarted h3{
+    font-family: Pacifico;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.cardGetStarted p{
+    font-family: 'Josefin Sans';
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.cardGetStarted input{
+    font-family: 'Josefin Sans';
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    width: fit-content;
+}
+
+.cardGetStarted button{
+    font-family: 'Josefin Sans';
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+@-webkit-keyframes animGS {
+    0%{background-position:2% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:2% 0%}
+}
+@-moz-keyframes animGS {
+    0%{background-position:2% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:2% 0%}
+}
+@-o-keyframes animGS {
+    0%{background-position:2% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:2% 0%}
+}
+@keyframes animGS {
+    0%{background-position:2% 0%}
+    50%{background-position:99% 100%}
+    100%{background-position:2% 0%}
+}
