@@ -31,29 +31,31 @@ const FormAdd = () => {
     };
 
     return (
-        <form className="TodoForm-form" onSubmit={onSubmit}>
-            <label>Escribe tu nuevo TODO</label>
-            <textarea
-                value={newTodoValue}
-                onChange={onChange}
-                placeholder="Cortar la cebolla para el almuerzo"
-            />
-            <div className="TodoForm-buttonContainer">
-                <button
-                    type="button"
-                    className="TodoForm-button TodoForm-button--cancel"
-                    onClick={onCancel}
-                >
-                    Cancelar
-                </button>
-                <button
-                    type="submit"
-                    className="TodoForm-button TodoForm-button--add"
-                >
-                    Añadir
-                </button>
-            </div>
-        </form>
+        <div className="contentFormAdd m-5 p-5">
+            <form className="TodoForm-form" onSubmit={onSubmit}>
+                <p>Escribe tu nueva tarea.</p>
+                <textarea
+                    value={newTodoValue}
+                    onChange={onChange}
+                    className="form-control"
+                />
+                <div className="TodoForm-buttonContainer">
+                    <button
+                        type="button"
+                        className="TodoForm-button TodoForm-button--cancel"
+                        onClick={onCancel}
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                        className="TodoForm-button TodoForm-button--add"
+                    >
+                        Añadir
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 };
 

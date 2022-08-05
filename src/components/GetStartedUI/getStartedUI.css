@@ -11,6 +11,7 @@
   justify-content: center;
   min-height: 100vh;
   color: #fff;
+  /*background: linear-gradient(107deg, #2DCCB8, #53A3DC);*/
   
 }
 .cardGetStarted h3{
@@ -57,4 +58,23 @@
     0%{background-position:2% 0%}
     50%{background-position:99% 100%}
     100%{background-position:2% 0%}
+}
+
+
+@keyframes animar{
+    0%{transform:translate(0px,0px);}
+    10%{transform:translate(20px,0px);}
+    20%{transform:translate(0px,0px);}
+    30%{transform:translate(20px,0px);}
+    40%{transform:translate(0px,0px);}
+    50%{transform:translate(20px,0px);}
+    60%{transform:translate(0px,0px);}
+    70%{transform:translate(20px,0px);}
+    80%{transform:translate(0px,0px);}
+    90%{transform:translate(20px,0px);}
+    100%{transform:translate(0px,0px);}
+}
+
+.temblor{
+    -webkit-animation:animar .6s 1;
 }

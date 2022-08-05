@@ -9,7 +9,7 @@ const useLocalStorage = (itemName, initialValue) => {
 
 
     useEffect(() => {
-      setTimeout(() => {
+      //setTimeout(() => {
         try {
             const localStorageItem = localStorage.getItem(itemName);
             let parsedItem;
@@ -25,9 +25,9 @@ const useLocalStorage = (itemName, initialValue) => {
         } catch (error) {
             setError(error)
         }
-      }, 2000);
+     // }, 5000);
     
-    })
+    },[])
     
 
     

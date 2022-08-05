@@ -11,6 +11,7 @@ import { Empty } from "../components/State/Empty";
 import { Error } from "../components/State/Error";
 import { Loading } from "../components/State/Loading";
 import { GetStartedUI } from "../components/GetStartedUI";
+import "./App.css";
 
 function AppUI() {
     const {
@@ -21,33 +22,64 @@ function AppUI() {
         deleteTodo,
         openModal,
         nameUser,
-        getStarted
+        getStarted,
+        pinupTodo
     } = useContext(TodoContext);
 
-    console.log('2:',nameUser,nameUser.length,getStarted);
+    const cantPinUp = listTodos.filter((todo) => todo.pinup).length;
+    const cantNOTPinUp = listTodos.filter((todo) => !todo.pinup).length;
 
     return (
         <react.Fragment>
             {!getStarted && (
-                <>
-                    <TodoCounter />
-                    <TodoSearch />
-                    <TodoList>
-                        {error && <Error />}
-                        {loading && <Loading />}
-                        {!loading && !listTodos.length && <Empty />}
-                        {listTodos.map((todo) => (
-                            <TodoItem
-                                key={todo.text}
-                                text={todo.text}
-                                completed={todo.completed}
-                                onComplete={() => toggleCompleteTodo(todo.text)}
-                                onDelete={() => deleteTodo(todo.text)}
-                            />
-                        ))}
-                    </TodoList>
+                <div className="appUI">
+                    <div className="appUI-header mb-5 pb-5">
+                        <TodoCounter />
+                        <TodoSearch />
+                    </div>
+                    {!loading && !listTodos.length && <Empty />}
+
+                    {cantPinUp > 0 && (
+                        <><TodoList><p className="TitleUrg">Urgentes:</p>
+                            {error && <Error />}
+                            {loading && <Loading />}
+                            {listTodos
+                                .filter((todo) => todo.pinup)
+                                .map((todo) => (
+                                    <TodoItem
+                                        key={todo.text}
+                                        text={todo.text}
+                                        completed={todo.completed}
+                                        pinup={todo.pinup}
+                                        onComplete={() => toggleCompleteTodo(todo.text)}
+                                        onDelete={() => deleteTodo(todo.text)}
+                                        onPinUp={() => pinupTodo(todo.text)} />
+                                ))}
+                        </TodoList><hr className="separator"></hr></>
+                    )}
+
+
+                    {cantNOTPinUp > 0 && (
+                        <><TodoList>
+                            {error && <Error />}
+                            {loading && <Loading />}
+                            {listTodos
+                                .filter((todo) => !todo.pinup)
+                                .map((todo) => (
+                                    <TodoItem
+                                        key={todo.text}
+                                        text={todo.text}
+                                        completed={todo.completed}
+                                        pinup={todo.pinup}
+                                        onComplete={() => toggleCompleteTodo(todo.text)}
+                                        onDelete={() => deleteTodo(todo.text)}
+                                        onPinUp={() => pinupTodo(todo.text)} />
+                                ))}
+                        </TodoList></>
+                    )}
+
                     <CreateTodoButton />
-                </>
+                </div>
             )}
             {!getStarted && openModal && (
                 <Modal>

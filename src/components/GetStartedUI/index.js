@@ -6,23 +6,36 @@ import { TodoContext } from "../Context";
 
 const GetStartedUI = () => {
     const [newNameUser, setNameUser] = useState("");
-    const { addNameUser, setGetStarted } = useContext(TodoContext);
+    const { addNameUser, nameUser } = useContext(TodoContext);
     const onChange = (event) => {
         setNameUser(event.target.value);
+        document.getElementById("nameUser").classList.remove("temblor");
+
     };
 
     const onSubmit = (event) => {
         event.preventDefault();
-        //setGetStarted(false)
-        addNameUser(newNameUser);
+         
+        if(newNameUser.length < 4){
+            document.getElementById("nameUser").classList.add("temblor");
+            return false;
+        }
+        addNameUser(titleCase(newNameUser));
         setNameUser("");
-        
     };
 
+    const titleCase = str => {
+        var splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        }
+        return splitStr.join(' '); 
+     };
+
     return (
-        <form onSubmit={onSubmit}>
+        <form className="w-100" onSubmit={onSubmit}>
             <div className="cardGetStarted">
-                <h3>¡Organiza tus tareas!</h3>
+                <h3 className="mx-5">¡Organiza tus tareas!</h3>
                 <p className="mt-5">¿Cuál es tu nombre?</p>
                 <input
                     id="nameUser"
